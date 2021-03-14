@@ -6,7 +6,7 @@ body{
     grid-template-columns:repeat(16,auto);
     animation-name:gridanimation;
     animation-duration: 1s;
-    animation-delay:1s;
+    animation-delay:2s;
     animation-fill-mode: forwards;
     position:relative;
     top:10rem;
@@ -16,6 +16,11 @@ body{
     height:1.5em;
     text-align: center;
     width:auto;
+    box-shadow: 5px 5px 10px white, 5px 5px 10px grey;
+    animation:animate;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    position:relative;
 }
 .container{
     display:grid;
@@ -23,22 +28,50 @@ body{
     grid-gap:1em;
     animation-name:gridanimation;
     animation-duration: 1s;
-    animation-delay:1s;
+    animation-delay: 2s;
     animation-fill-mode: forwards;
     position:relative;
     top:10rem;
 }
-@keyframes gridanimation{
-  0% {grid-gap:1em; }
-  100% { grid-gap:0.1em;
-    box-shadow: 5px 5px 10px #474343,5px 5px 10px #FFF;
+.wrapper{
+    padding:5%;
 }
+@keyframes gridanimation{
+  0% {
+      grid-gap:1em;
+      transform:rotateY(90deg);
+      transform:rotateZ(180deg);
+      left:-1000px;
+    }
+  100% { 
+      grid-gap:0.1em;
+      box-shadow: 5px 5px 10px #292727;
+      transform:rotateY(0deg);
+      transform:rotateZ(0deg);
+      left:0px;
+       }
 }
 .container div{
     border:1px solid black;
     height:3em;
     text-align: center;
     width:auto;
+   /* box-shadow: 5px 5px 10px pink inset,5px 5px 10px ;*/
+   box-shadow: 5px 5px 10px white, 5px 5px 10px grey;
+   animation:animate;
+   animation-duration: 1s;
+   animation-fill-mode: forwards;
+   position:relative;
+}
+@keyframes animate{
+    0% {
+        left:-1000px;
+        transform:rotateX(1800deg);
+    }
+    100% {
+        left:0px;
+        transform:rotateX(0deg);
+    }
 }
 button{
     width:100%;
@@ -67,6 +100,7 @@ button:hover{
 .windows button{
     background-image:url(windows.png);
     background-size:cover;
+    background-position: center;
 }
 .windows button:hover{
     background:url(win.png);
@@ -75,4 +109,22 @@ button:hover{
 button:active{
     transform:translateY(4px);
     box-shadow: 0 2px #333;
+}
+h1{
+    color:white;
+    text-align:center;
+    font-size:1.5em;
+    text-decoration:underline;
+    animation:heading;
+    animation-duration: 2s;
+    animation-delay: 2s;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.42, 0, 0.55, 1.73);
+    position:relative;
+    top:-1000px;
+}
+@keyframes heading{
+   100%{
+       top:0px;
+   }
 }
